@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 const baseURL = 'https://restful-booker.herokuapp.com';
+
 //Создание бронирования (POST)
-test('Создание бронирования (POST)', async ({ request }) => {
+test('Создание бронирования (POST) @api', async ({ request }) => {  // Добавил @api
     const bookingData = {
         firstname: "Иван",
         lastname: "Петров",
@@ -24,8 +25,9 @@ test('Создание бронирования (POST)', async ({ request }) => 
     expect(responseBody).toHaveProperty('bookingid');
     expect(responseBody.booking.firstname).toBe("Иван");
 });
+
 //Получение информации о бронировании (GET)
-test('Получение информации о бронировании (GET)', async ({ request }) => {
+test('Получение информации о бронировании (GET) @api', async ({ request }) => {  // Добавил @api
     const createResponse = await request.post(`${baseURL}/booking`, {
         data: {
             firstname: "Иван",
@@ -50,8 +52,9 @@ test('Получение информации о бронировании (GET)'
     const responseBody = await response.json();
     expect(responseBody.firstname).toBe("Иван");
 });
+
 //Обновление бронирования (PUT)
-test('Обновление бронирования (PUT)', async ({ request }) => {
+test('Обновление бронирования (PUT) @api', async ({ request }) => {  // Добавил @api
     const createResponse = await request.post(`${baseURL}/booking`, {
         data: {
             firstname: "Иван",
@@ -99,8 +102,9 @@ test('Обновление бронирования (PUT)', async ({ request }) 
     const responseBody = await response.json();
     expect(responseBody.firstname).toBe("Сергей");
 });
+
 //Удаление бронирования (DELETE)
-test('Удаление бронирования (DELETE)', async ({ request }) => {
+test('Удаление бронирования (DELETE) @api', async ({ request }) => {  // Добавил @api
     const createResponse = await request.post(`${baseURL}/booking`, {
         data: {
             firstname: "Иван",

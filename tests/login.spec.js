@@ -1,6 +1,7 @@
-let { test, expect } = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
+
 test.describe('Авторизация на Sauce Demo', () => {
-  test('Успешный вход с валидными данными', async ({ page }) => {
+  test('Успешный вход с валидными данными @ui', async ({ page }) => {  // Добавил @ui
     // 1. Переходим на страницу
     await page.goto('https://www.saucedemo.com/');
     // 2. Вводим логин
@@ -12,7 +13,8 @@ test.describe('Авторизация на Sauce Demo', () => {
     // 5. Проверяем, что URL изменился и содержит нужную часть
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
   });
-  test('Неуспешный вход с заблокированным пользователем', async ({ page }) => {
+  
+  test('Неуспешный вход с заблокированным пользователем @ui', async ({ page }) => {  // Добавил @ui
     // 1. Переходим на страницу
     await page.goto('https://www.saucedemo.com/');
     // 2. Вводим логин заблокированного пользователя

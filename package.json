@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test tests/login.spec.js"
+    "tests:ui": "playwright test --grep @ui",  
+    "tests:api": "playwright test --grep @api",  
+    "tests:all": "playwright test" 
   },
   "keywords": [],
   "author": "",
